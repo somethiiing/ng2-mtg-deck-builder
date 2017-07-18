@@ -3,6 +3,7 @@ import { HttpModule } from '@angular/http';
 import { NgModule } from '@angular/core';
 
 import { App } from './app';
+import { Api } from './services';
 
 @NgModule({
   declarations: [
@@ -12,7 +13,9 @@ import { App } from './app';
     BrowserModule,
     HttpModule
   ],
-  providers: [],
+  providers: [
+    Api
+  ],
   bootstrap: [App]
 })
 export class AppModule { }
