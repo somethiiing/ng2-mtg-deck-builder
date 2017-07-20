@@ -1,26 +1,14 @@
-import { Component, OnInit } from '@angular/core';
-import { Api } from './services';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   template: `
-    <div *ngFor="let unit of data; let i = index">
-      {{i}}. {{unit.name}}
-    </div>
+    <card-selector></card-selector>
   `,
   styleUrls: ['./app.css']
 })
-export class App implements OnInit {
+export class App {
   title = 'app';
-  data = [];
+  constructor() {  }
 
-  constructor( private api: Api) {}
-
-  ngOnInit() {
-    this.api.get('/cards', 'set=AKH')
-      .subscribe();
-
-    this.api.getAllCardsBySet('AKH')
-      .subscribe(data => this.data = data);
-  }
 }
