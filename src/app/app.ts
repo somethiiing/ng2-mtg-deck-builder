@@ -1,20 +1,26 @@
 import { Component, OnInit } from '@angular/core';
-import { Http } from '@angular/http';
-import { Observable } from 'rxjs/Rx';
+import { Api } from './services';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.html',
+  template: `
+    <div *ngFor="let unit of data; let i = index">
+      {{i}}. {{unit.name}}
+    </div>
+  `,
   styleUrls: ['./app.css']
 })
 export class App implements OnInit {
   title = 'app';
+  data = [];
 
-  constructor( private http: Http) {}
+  constructor( private api: Api) {}
 
   ngOnInit() {
-    this.http.get('./mtgDB.ts')
-      .do(data => console.log(data))
+    this.api.get('/cards', 'set=AKH')
       .subscribe();
+
+    this.api.getAllCardsBySet('AKH')
+      .subscribe(data => this.data = data);
   }
 }
