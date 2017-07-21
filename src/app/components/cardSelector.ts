@@ -2,24 +2,19 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Api } from '../services';
 import { SlimLoadingBarService } from 'ng2-slim-loading-bar';
 
+          // <img src="{{cardData[set][card].imageUrl}}">
 @Component({
   selector: 'card-selector',
   template: `
-    <div *ngFor="let set of cardDataKeys;">
-      <div class="card" *ngFor="let card of Object.keys(cardData[set]);">
-        <ul>
-          <li>
-            <img src="{{cardData[set][card].imageUrl}}">
-          </li>
-        </ul>
-      </div>
+    <div>
+      <ul class="carousel" *ngFor="let set of cardDataKeys;">
+        <li *ngFor="let card of Object.keys(cardData[set]);">
+          <card></card>
+        </li>
+      </ul>
     </div>
   `,
-  styles: [`
-    .card {
-      display: inline;
-    }
-  `]
+  styleUrls: ['cardSelector.css']
 })
 
 export class CardSelector implements OnInit {

@@ -4,13 +4,14 @@ import { NgModule } from '@angular/core';
 import { SlimLoadingBarModule } from 'ng2-slim-loading-bar';
 
 import { App } from './app';
-import { CardSelector } from './components';
+import { CardSelector, Card } from './components';
 import { Api } from './services';
 
 @NgModule({
   declarations: [
     App,
-    CardSelector
+    CardSelector,
+    Card
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,11 @@
+.carousel {
+  overflow: scroll;
+  height: 275px;
+  white-space: nowrap;
+}
+
+li {
+  display: inline-block;
+  list-style-type: none;
+  padding: 0 3px 0 3px;
+}
