@@ -6,12 +6,20 @@ import { SlimLoadingBarService } from 'ng2-slim-loading-bar';
   selector: 'card-selector',
   template: `
     <div *ngFor="let set of cardDataKeys;">
-      <div *ngFor="let card of Object.keys(cardData[set]);">
-        <img src="{{cardData[set][card].imageUrl}}">
+      <div class="card" *ngFor="let card of Object.keys(cardData[set]);">
+        <ul>
+          <li>
+            <img src="{{cardData[set][card].imageUrl}}">
+          </li>
+        </ul>
       </div>
     </div>
   `,
-  styles: ['']
+  styles: [`
+    .card {
+      display: inline;
+    }
+  `]
 })
 
 export class CardSelector implements OnInit {
